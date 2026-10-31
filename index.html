@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c2410c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<title>Guia de Presets</title>
+<style>
+:root{--bg:#faf8f5;--cd:#fff;--tx:#1d1b19;--mu:#6f6a64;--ac:#c2410c;--bd:#e7e2db;--ok:#15803d;--no:#b91c1c;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171513;--cd:#221f1c;--tx:#f2eee9;--mu:#a09a92;--ac:#fb923c;--bd:#38332e;--ok:#4ade80;--no:#f87171}}
+:root[data-theme="dark"]{--bg:#171513;--cd:#221f1c;--tx:#f2eee9;--mu:#a09a92;--ac:#fb923c;--bd:#38332e;--ok:#4ade80;--no:#f87171}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:1rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;padding:10px 14px 8px;border-bottom:1px solid var(--bd)}
+.t1{display:flex;align-items:center;gap:8px}.t1 h1{flex:1;font-size:1.2rem;margin:0}
+.hint{color:var(--mu);font-size:.8rem;margin:2px 0 8px}
+input,textarea,select{width:100%;font:inherit;color:var(--tx);background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:9px 11px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;scrollbar-width:none}
+.chip{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:99px;padding:6px 12px;font:inherit;font-size:.88rem}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#fff}
+main{padding:12px 14px 90px;max-width:640px;margin:0 auto}
+.bar{display:flex;gap:8px;margin-bottom:10px;align-items:center}.bar span{flex:1;color:var(--mu);font-size:.8rem}
+.btn{border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:10px;padding:8px 12px;font:inherit;font-size:.88rem}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.d{color:var(--no)}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px;overflow:hidden}
+.ph{display:block;width:calc(100% + 24px);margin:-12px -12px 10px;max-height:200px;object-fit:cover}
+.h{display:flex;gap:8px;align-items:center}
+.rk{flex:none;min-width:26px;height:26px;border-radius:99px;background:var(--ac);color:#fff;font-size:.8rem;font-weight:700;display:grid;place-items:center}
+.h b{flex:1}.st{color:var(--ac);font-size:.8rem;letter-spacing:1px;white-space:nowrap}
+.fv{border:0;background:none;font-size:1.2rem;padding:2px 4px;color:var(--ac)}
+.c p{margin:6px 0 0;font-size:.88rem}.ok{color:var(--ok)}.no{color:var(--no)}.ob{color:var(--mu)}
+.mv{display:flex;gap:6px;margin-top:8px}.mv .btn{padding:4px 12px}
+.ov{position:fixed;inset:0;background:#0008;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sh{background:var(--bg);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:16px 14px calc(16px + env(safe-area-inset-bottom,0px))}
+.sh label{display:block;font-size:.8rem;color:var(--mu);margin:10px 0 3px}
+.sits{display:flex;flex-wrap:wrap;gap:6px}
+.sits label{display:flex;align-items:center;gap:5px;margin:0;color:var(--tx);border:1px solid var(--bd);background:var(--cd);border-radius:99px;padding:5px 10px;font-size:.88rem}
+.sits input{width:auto}
+.row{display:flex;gap:8px;margin-top:14px}.row .btn{flex:1}
+.pv{max-width:100%;max-height:160px;border-radius:10px;margin-top:6px;display:block}
+#stat{position:fixed;left:0;right:0;bottom:calc(8px + env(safe-area-inset-bottom,0px));text-align:center;font-size:.75rem;color:var(--mu);pointer-events:none}
+.c p.tg{font-size:.75rem;color:var(--mu)}.c.sel{outline:3px solid var(--ac)}
+.fl{display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:.8rem;color:var(--ac)}.fl .btn{padding:3px 10px}
+.cg{display:grid;gap:8px;overflow-x:auto;margin-top:10px}.cc{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:10px;font-size:.85rem}
+.cc small{color:var(--mu);display:block;margin-top:8px}.cc p{margin:2px 0 0}
+.cbar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--bd);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;align-items:center;z-index:6}.cbar span{flex:1;font-size:.88rem}
+.btn:disabled{opacity:.4}
+</style></head><body>
+<div class="top">
+<div class="t1"><h1>📷 Presets</h1><button class="btn p" id="rec">✨ Recomendar</button><button class="btn" id="cfg">⚙</button></div>
+<p class="hint">Toque numa situação: a lista vai do melhor para o pior. Toque num cartão para editar.</p>
+<input id="q" type="search" placeholder="Buscar preset ou palavra (ex.: pele, escuro)">
+<div class="chips" id="chips"></div>
+</div>
+<main><div class="bar" id="bar"></div><div id="list"></div></main>
+<div id="stat"></div><div id="ov"></div><div id="cb"></div>
+<script>
+const RAW=`pixel|Google Pixel|4|Cores muito reais, HDR excelente, tom de pele natural, muitos detalhes. Melhor para selfie frontal.|Falta um pouco de contraste.|Frontal,Traseira,Sol forte,Noite,Natural
+r6|Canon EOS R6 Mark II|5|Excelente tom de pele, contraste equilibrado, aparência profissional. Quase não precisa editar. Melhor para retratos com a câmera traseira. Pele saudável e vibrante, ótimo para eventos.|Muito ruído em baixa luz. Evite na selfie frontal.|Traseira,Natural
+has|Hasselblad 500EL|4|Profundidade, sombras marcadas, visual premium e elegante. Destaca volume.|Mais cinemático; no modo cinema o efeito é mais fraco.|Traseira,Cinemático,Noite
+g7|Canon PowerShot G7 X Mark III|4|Pele quente e rosada, mais contraste e saturação. Chamativo para Instagram.|Mais escuro e menos natural que a R6. Evite na selfie frontal.|Traseira,Escuro
+clear|Clear Photo|3|Muito clara, tom de pele fiel, ótima base para editar. Máxima nitidez e clareza.|Plana, pouca profundidade.|Frontal,Claro
+soft|Soft Portrait|2|Cores equilibradas, aparência suave.|Muito plana, pouca personalidade.|Natural
+nat|Natural Tones|1|Prioriza a naturalidade das cores.|Sem vida, pouca saturação no seu aparelho.|Natural
+ip|Apple iPhone|0|Equilibrado, ótima pele, processamento natural. Bom na frontal.|Ruim na câmera traseira.|Frontal,Natural
+prv|Fujifilm Provia 400X|5|O melhor no cinema e no vintage. Natural e versátil, ótimo para fotos escuras.|Mais escuro.|Escuro,Cinemático,Vintage,Natural,Pouca luz
+ast|Fujifilm Astia 100F|0|Pele extremamente natural, baixo contraste, bom para comida e retrato. Muito detalhada.|Tende ao amarelado e, no cinema, muito saturada.|Frontal,Natural,Cinemático,Pele natural
+p4|Kodak Portra 400|5|O melhor no estilo filme. Pele natural, visual cinematográfico, melhor em fotos claras.||Claro,Cinemático,Natural,Pele natural,Vintage
+sig|Sigma FP Q|4|Aparência de filme analógico. Segundo melhor.||Vintage
+ret|Kodak Retrô|0|Visual anos 80 e 90.||Vintage
+p8|Kodak Portra 800|0|Mais quente que o Portra 400. Excelente para luz quente e golden hour.||Pôr do sol,Vintage
+v3|Kodak Vision3 500T|0|Azul intenso, clima de cinema.|Muito chapado.|Cinemático
+fx|Sony FX30|0|Pele natural, cores suaves, foto pronta quase sem edição. Bom para retrato, ambiente urbano e comida.||Cinemático,Natural,Pele natural
+la|Leica D-Lux 8 – Authentic|0|Realismo clássico, menos saturação.|Cor mais chapada, cinemática.|Natural,Cinemático
+lv|Leica D-Lux 8 – Vibrant|0|Mais brilho e saturação sem exagero. Pele e natureza em destaque.||Vibrante,Pele natural
+lm|Leica D-Lux 8 – Monochrome|5|O melhor P&B. Elegante.||P&B
+lm2|Leica Monochrome|0|Preto e branco clássico.||P&B
+neo|Fujifilm Neopan 1600|0|Alto contraste. Ótimo para rua, shows e cenas noturnas.||P&B,Noite
+vel|Velvia 50 (FV5)|0|Máxima saturação, paisagens exuberantes.|Exagerado para selfie.|Vibrante
+for|Fortia SP (FF5)|0|Verdes vivos, alto contraste, saturação extrema.|Exagerado para selfie.|Vibrante
+t64|Fujifilm T64 (FT6)|0|Ideal para luz artificial. Visual frio de filme.||Noite,Ambiente fechado
+xm5|Fujifilm X-M5|0|Vermelhos, âmbar e terracota muito ricos.||Pôr do sol
+gnd|Golden Sunset ND|0|Simula filtro ND, dourado intenso.||Pôr do sol
+snd|Sunset ND|0|Reduz a luz e evita estouros. A versão 2 é igual, sem vinheta.||Pôr do sol,Sol forte
+pan|Pantone True Colors|0|Máxima fidelidade de cores.|Visual chapado, pouco contraste. Evite na selfie frontal.|Natural
+lum|Lumix S9|0|Tons equilibrados, transição suave nas altas luzes.|Muito esmaecida.|
+dk|Dark Tones|0|Visual sombrio e cinemático.|Muito escuro e chapado, com muita vinheta.|Escuro
+shi|Absolute Shiny HDR|0|Mais brilho e clareza nos tons claros.|Pode exagerar no brilho.|Claro
+vib|Vibrant Color Tones|0|Cores intensas para natureza, carros e objetos.|Exagerado para selfie.|Vibrante
+vp|Vintage Portrait|0|Visual anos 80 e 90, tons frios e densos.||Vintage
+lyt|Sony Lytia 700C|0|Aparência profissional, exposição equilibrada e cores naturais. Foto pronta.||Natural
+fp|Fujifilm Portrait|0|Tons nostálgicos, mais quente e encorpado.||Vintage
+nik|Nikon Z9|0|Alta nitidez, cores vibrantes e precisas.||Vibrante
+lse|Leica D-Lux 8 – Sepia|0|Sépia moderno.||
+lor|Leica D-Lux 8 – Orange Impact|0|Destaque para laranja e vermelho.||
+pix|Kodak PIXPRO FZ55|0|Balanço de branco levemente aquecido.|Na verdade é muito quente.|
+abk|Shades of Absolute Black|0|Pretos extremamente profundos. Mais realista, com mais highlights.||Escuro`;
+const SIT=`Ranking geral=r6,has,pixel,g7,clear,soft,nat
+Selfie (frontal)=pixel,ast,clear,ip
+Retrato (câmera traseira)=r6,g7,has,pixel
+Retratos=r6,has,g7,soft,fp,vp,ast
+Instagram=g7,has,r6,lv
+Academia e físico=has,r6,g7
+Golden hour=has,p8,xm5,r6,gnd,snd
+Noite=pixel,r6,has,t64
+Para editar depois=pixel,clear,ip
+Naturais e realistas=pixel,ip,lyt,pan,nat,lum,la
+Fidelidade de cor=pan,pixel,ip,la
+Cores vibrantes=vib,lv,nik,for,vel
+Paisagem=vel,for,pixel
+Cinema=prv,fx,v3,ast,has,la
+Filme / vintage=p4,sig,ret,p8,v3,pix,vp,prv
+Preto e branco=lm,lm2,neo
+Estilo Leica=lm,lse,lor,la,lv
+Estilo escuro=abk,dk
+HDR=shi
+Nitidez=clear,nik
+Comida=fx,r6,ast
+Fujifilm clássicos=ast,for,neo,vel,t64,prv
+Evitar=lum,nat,soft,clear,shi,dk,vib,vel,for`;
+const GR=[['Câmera','Frontal,Traseira'],['Luz','Sol forte,Nublado,Ambiente fechado,Pouca luz,Noite,Pôr do sol'],['Visual','Natural,Vibrante,Escuro,Claro,Cinemático,Vintage,P&B,Pele natural']];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const def=()=>({p:RAW.split('\n').map(l=>{const a=l.split('|');return{id:a[0],n:a[1],s:+a[2],pro:a[3],con:a[4],tg:(a[5]||'').split(',').filter(Boolean)}}),t:SIT.split('\n').map(l=>{const a=l.split('=');return{n:a[0],ids:a[1].split(',')}}),c:{tema:'auto',fonte:'m',comp:0,ord:'az'},g:GR.map(x=>({n:x[0],l:x[1].split(',')})),v:3});
+let S=def(),PH={},cur='Todos',q='',mv=0,arm=null,deferred=null,tm,fl=[],cm=0,sel=[];
+const stars=n=>n?'★'.repeat(n)+'☆'.repeat(5-n):'';
+const find=id=>S.p.find(p=>p.id===id);
+const ADD={clear:'Máxima nitidez e clareza.',r6:'Pele saudável e vibrante, ótimo para eventos.',lum:'Tons equilibrados, transição suave nas altas luzes.',nat:'Prioriza a naturalidade das cores.'};
+function mig(){let ch=0;if(!(S.v>=2)){const d=def();d.p.forEach(p=>{if(!find(p.id))S.p.push(p)});d.t.forEach(t=>{const x=S.t.find(y=>y.n===t.n);if(!x)S.t.push(t);else t.ids.forEach(i=>{if(!x.ids.includes(i))x.ids.push(i)})});for(const k in ADD){const p=find(k);if(p&&!(p.pro||'').includes(ADD[k]))p.pro=((p.pro||'')+' '+ADD[k]).trim()}S.v=2;ch=1}
+if(S.v<3){const d=def();if(!S.g)S.g=d.g;d.p.forEach(p=>{const x=find(p.id);if(x&&!x.tg)x.tg=p.tg});S.v=3;ch=1}return ch}
+const stat=t=>{$('#stat').textContent=t;clearTimeout(tm);tm=setTimeout(()=>$('#stat').textContent='',2500)};
+const save=()=>{try{localStorage.setItem('gp2',JSON.stringify(S));stat('Salvo ✓')}catch(e){stat('Sem espaço para salvar')}if(window.__ref)window.__ref.set({j:JSON.stringify(S)}).then(()=>stat('Salvo na sua conta ✓')).catch(()=>{})};
+function apply(){const r=document.documentElement;S.c.tema==='auto'?r.removeAttribute('data-theme'):r.dataset.theme=S.c.tema;r.style.fontSize={p:'14px',m:'16px',g:'19px'}[S.c.fonte]}
+/* fotos (IndexedDB) */
+const idb=new Promise((r,j)=>{const o=indexedDB.open('gp',1);o.onupgradeneeded=()=>o.result.createObjectStore('f');o.onsuccess=()=>r(o.result);o.onerror=j});
+const fx=async(m,f)=>{const d=await idb;return new Promise((r,j)=>{const t=d.transaction('f',m),q=f(t.objectStore('f'));t.oncomplete=()=>r(q&&q.result);t.onerror=j})};
+const fset=(k,v)=>fx('readwrite',s=>s.put(v,k)),fdel=k=>fx('readwrite',s=>s.delete(k));
+const fall=async()=>{const d=await idb;return new Promise(r=>{const o={},c=d.transaction('f').objectStore('f').openCursor();c.onsuccess=()=>{const x=c.result;if(x){o[x.key]=x.value;x.continue()}else r(o)}})};
+const shrink=f=>new Promise(r=>{const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{const k=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);r(c.toDataURL('image/jpeg',.75))};im.src=u});
+/* lista */
+const special=()=>['Todos','fav'].includes(cur);
+function items(){const L=base();return fl.length?L.filter(p=>fl.every(x=>(p.tg||[]).includes(x))):L}
+function base(){
+  if(q)return S.p.filter(p=>(p.n+' '+p.pro+' '+p.con+' '+(p.obs||'')).toLowerCase().includes(q));
+  if(cur==='fav')return S.p.filter(p=>p.f);
+  if(cur==='Todos')return[...S.p].sort((a,b)=>(S.c.ord==='nota'?b.s-a.s:0)||a.n.localeCompare(b.n));
+  const t=S.t.find(t=>t.n===cur);return t?t.ids.map(find).filter(Boolean):[];
+}
+function render(){
+  if(!special()&&!S.t.find(t=>t.n===cur))cur='Todos';
+  const lab=cur==='fav'?'⭐ Favoritos':cur,rk=!q&&!special(),L=items(),cp=S.c.comp;
+  $('#chips').innerHTML=[['Todos','Todos'],['fav','⭐ Favoritos'],...S.t.map(t=>[t.n,t.n])].map(([k,l])=>`<button class="chip${k===cur&&!q?' on':''}" data-s="${esc(k)}">${esc(l)}</button>`).join('');
+  $('#bar').innerHTML=`<span>${q?'Resultados':esc(lab)} · ${L.length}</span>`+(rk?`<button class="btn" id="mvb">${mv?'Concluir':'Reordenar'}</button>`:'')+`<button class="btn" id="flb">🏷${fl.length?' '+fl.length:''}</button><button class="btn${cm?' p':''}" id="cmpb">⚖</button><button class="btn p" id="add">＋ Preset</button>`;
+  $('#list').innerHTML=(fl.length?`<div class="fl">Filtro: ${fl.map(esc).join(' · ')} <button class="btn" id="flx">limpar</button></div>`:'')+(L.map((p,i)=>`<div class="c${cm&&sel.includes(p.id)?' sel':''}" data-i="${p.id}">${!cp&&PH[p.id]?`<img class="ph" src="${PH[p.id]}" alt="">`:''}<div class="h">${rk?`<span class="rk">${i+1}</span>`:''}<b>${esc(p.n)}</b><span class="st">${stars(p.s)}</span><button class="fv" data-f>${p.f?'⭐':'☆'}</button></div>${cp?'':`${(p.tg||[]).length?`<p class="tg">🏷 ${p.tg.map(esc).join(' · ')}</p>`:''}${p.pro?`<p class="ok">＋ ${esc(p.pro)}</p>`:''}${p.con?`<p class="no">－ ${esc(p.con)}</p>`:''}${p.obs?`<p class="ob">📝 ${esc(p.obs)}</p>`:''}`}${rk&&mv&&!fl.length?`<div class="mv"><button class="btn" data-m="-1">▲ Subir</button><button class="btn" data-m="1">▼ Descer</button><button class="btn d" data-m="x">Tirar daqui</button></div>`:''}</div>`).join('')||'<p class="hint">Nada por aqui com esta situação ou filtro. Use “＋ Preset”, “Reordenar” ou ajuste o filtro 🏷.</p>');
+  if(rk&&mv)$('#list').insertAdjacentHTML('beforeend','<button class="btn" id="man">Renomear ou excluir esta situação</button>');
+  cbar();
+}
+const close=()=>$('#ov').innerHTML='';
+const allTags=()=>S.g.flatMap(g=>g.l);
+const tagBlock=(sl,at)=>S.g.map(g=>`<label style="margin-top:8px">${esc(g.n)}</label><div class="sits">${g.l.map(x=>`<label><input type="checkbox" ${at}="${esc(x)}"${sl.includes(x)?' checked':''}>${esc(x)}</label>`).join('')}</div>`).join('');
+function cbar(){$('#cb').innerHTML=cm?`<div class="cbar"><span>${sel.length}/3 escolhidos</span><button class="btn" id="cx">Cancelar</button><button class="btn p" id="cgo"${sel.length<2?' disabled':''}>Comparar</button></div>`:''}
+function flt(){
+  $('#ov').innerHTML=`<div class="ov"><div class="sh"><b>🏷 Filtrar por etiquetas</b><p class="hint">Combina com a situação escolhida e mostra só os presets que têm todas as etiquetas marcadas.</p>${tagBlock(fl,'data-fl')}<div class="row"><button class="btn" id="fc">Limpar</button><button class="btn p" id="fa">Aplicar</button></div></div></div>`;
+  $('#fc').onclick=()=>{fl=[];close();render()};
+  $('#fa').onclick=()=>{fl=[...document.querySelectorAll('[data-fl]:checked')].map(c=>c.dataset.fl);close();render()};
+}
+function cmp(){
+  const L=sel.map(find).filter(Boolean);
+  $('#ov').innerHTML=`<div class="ov"><div class="sh"><b>⚖ Comparação</b><div class="cg" style="grid-template-columns:repeat(${L.length},minmax(160px,1fr))">${L.map(p=>`<div class="cc"><b>${esc(p.n)}</b><div class="st">${stars(p.s)||'Sem nota'}</div>${PH[p.id]?`<img class="pv" src="${PH[p.id]}">`:''}<small>Etiquetas</small><p>${(p.tg||[]).map(esc).join(' · ')||'—'}</p><small>Pontos fortes</small><p class="ok">${esc(p.pro)||'—'}</p><small>Pontos fracos</small><p class="no">${esc(p.con)||'—'}</p>${p.obs?`<small>Minhas anotações</small><p>${esc(p.obs)}</p>`:''}</div>`).join('')}</div><div class="row"><button class="btn p" id="x">Fechar</button></div></div></div>`;
+  $('#x').onclick=close;
+}
+function rec(){
+  const grp=n=>(S.g.find(g=>g.n===n)||{l:[]}).l,op=a=>'<option value="">Tanto faz</option>'+a.map(v=>`<option>${esc(v)}</option>`).join('');
+  $('#ov').innerHTML=`<div class="ov"><div class="sh"><b>✨ Me recomenda um preset</b><p class="hint">Responda o que souber. Pode deixar “Tanto faz”.</p>
+<label>Que tipo de foto?</label><select id="r1">${op(S.t.filter(t=>t.n!=='Evitar').map(t=>t.n))}</select>
+<label>Qual câmera?</label><select id="r2">${op(grp('Câmera'))}</select>
+<label>Como está a luz?</label><select id="r3">${op(grp('Luz'))}</select>
+<label>Que visual você quer?</label><select id="r4">${op(grp('Visual'))}</select>
+<div class="row"><button class="btn" id="x">Fechar</button><button class="btn p" id="rgo">Recomendar</button></div><div id="rr"></div></div></div>`;
+  $('#x').onclick=close;
+  $('#rgo').onclick=()=>{
+    const[s,c,l,v]=['r1','r2','r3','r4'].map(i=>$('#'+i).value),T=S.t.find(t=>t.n===s),ev=S.t.find(t=>t.n==='Evitar');
+    const R=S.p.map(p=>{let sc=0;const why=[],tg=p.tg||[];
+      if(T){const i=T.ids.indexOf(p.id);if(i<0)sc-=3;else{sc+=5-Math.min(i,4)*.6;why.push('está em “'+s+'”'+(i<3?' (nº '+(i+1)+')':''))}}
+      if(c){if(tg.includes(c)){sc+=3;why.push('boa na câmera '+c.toLowerCase())}else if(tg.some(x=>grp('Câmera').includes(x)))sc-=2}
+      if(l&&tg.includes(l)){sc+=3;why.push('funciona com luz: '+l.toLowerCase())}
+      if(v&&tg.includes(v)){sc+=2;why.push('visual '+v.toLowerCase())}
+      if(ev&&ev.ids.includes(p.id)&&s!=='Evitar')sc-=2;
+      sc+=p.s*.4+(p.f?1:0)+Math.min(p.u||0,5)*.3;return{p,sc,why}}).sort((a,b)=>b.sc-a.sc).slice(0,3);
+    const un=S.p.filter(p=>!(p.tg||[]).length).length;
+    $('#rr').innerHTML=R.map((r,i)=>`<div class="c" style="margin-top:10px"><div class="h"><span class="rk">${i+1}</span><b>${esc(r.p.n)}</b><span class="st">${stars(r.p.s)}</span></div><p>${r.why.length?'Por quê: '+esc(r.why.join(', '))+'.':'Ainda sem etiquetas para este pedido.'}</p>${r.p.con?`<p class="no">－ ${esc(r.p.con)}</p>`:''}<button class="btn" data-u="${r.p.id}" style="margin-top:8px">👍 Usei e gostei</button></div>`).join('')+`<p class="hint" style="margin-top:10px">${un?un+' presets ainda sem etiquetas. Quanto mais você etiquetar, dar notas e marcar “usei e gostei”, mais certeira fica a recomendação.':'Todos os presets têm etiquetas. 👏'}</p>`;
+  };
+}
+/* editar preset */
+function edit(id){
+  const p=find(id)||{id:'',n:'',s:0,pro:'',con:'',obs:'',f:0};let ph;
+  $('#ov').innerHTML=`<div class="ov"><div class="sh"><b>${id?'Editar preset':'Novo preset'}</b>
+<label>Nome</label><input id="en" value="${esc(p.n)}">
+<label>Nota</label><select id="es">${[0,1,2,3,4,5].map(n=>`<option value="${n}"${n===p.s?' selected':''}>${n?stars(n):'Sem nota'}</option>`).join('')}</select>
+<label>Pontos fortes (melhor para quê?)</label><textarea id="ep" rows="3">${esc(p.pro)}</textarea>
+<label>Pontos fracos (evitar quando?)</label><textarea id="ec" rows="3">${esc(p.con)}</textarea>
+<label>Minhas anotações (ex.: configurações que usei)</label><textarea id="eo" rows="2">${esc(p.obs)}</textarea>
+<div class="sits" style="margin-top:10px"><label><input type="checkbox" id="ef"${p.f?' checked':''}>⭐ Favorito</label></div>
+<label>Foto de exemplo</label><input type="file" id="eph" accept="image/*">${PH[p.id]?`<img class="pv" id="pv" src="${PH[p.id]}"><button class="btn d" id="rph" style="margin-top:6px">Remover foto</button>`:'<img class="pv" id="pv" hidden>'}
+<label>Etiquetas (ajudam o filtro e as recomendações)</label>${tagBlock(p.tg||[],'data-tag')}<input id="en3" placeholder="Nova etiqueta (opcional)" style="margin-top:8px"><label>Aparece nestas situações</label><div class="sits">${S.t.map((t,i)=>`<label><input type="checkbox" data-t="${i}"${p.id&&t.ids.includes(p.id)?' checked':''}>${esc(t.n)}</label>`).join('')}</div>
+<label>Ou crie uma nova situação</label><input id="en2" placeholder="Ex.: Viagem">
+<div class="row"><button class="btn" id="x">Cancelar</button><button class="btn p" id="ok">Salvar</button></div>
+${id?'<div class="row"><button class="btn d" id="del">Excluir preset</button></div>':''}</div></div>`;
+  $('#x').onclick=close;
+  $('#eph').onchange=async e=>{if(e.target.files[0]){ph=await shrink(e.target.files[0]);$('#pv').src=ph;$('#pv').hidden=false}};
+  if($('#rph'))$('#rph').onclick=()=>{ph=null;$('#pv').hidden=true;$('#rph').hidden=true};
+  $('#ok').onclick=async()=>{
+    const n=$('#en').value.trim();if(!n){$('#en').focus();return}
+    let o=find(id);if(!o){o={id:'p'+Date.now()};S.p.push(o)}
+    Object.assign(o,{n,s:+$('#es').value,pro:$('#ep').value.trim(),con:$('#ec').value.trim(),obs:$('#eo').value.trim(),f:$('#ef').checked?1:0});
+    o.tg=[...document.querySelectorAll('[data-tag]:checked')].map(c=>c.dataset.tag);const nt=$('#en3').value.trim();if(nt){if(!allTags().includes(nt)){let g=S.g.find(g=>g.n==='Minhas');if(!g){g={n:'Minhas',l:[]};S.g.push(g)}g.l.push(nt)}if(!o.tg.includes(nt))o.tg.push(nt)}
+    document.querySelectorAll('[data-t]').forEach(c=>{const t=S.t[c.dataset.t],has=t.ids.includes(o.id);
+      if(c.checked&&!has)t.ids.push(o.id);if(!c.checked&&has)t.ids=t.ids.filter(x=>x!==o.id)});
+    const ns=$('#en2').value.trim();
+    if(ns){let t=S.t.find(t=>t.n===ns);if(!t){t={n:ns,ids:[]};S.t.push(t)}if(!t.ids.includes(o.id))t.ids.push(o.id);cur=ns}
+    try{if(ph){PH[o.id]=ph;await fset(o.id,ph)}else if(ph===null){delete PH[o.id];await fdel(o.id)}}catch(e){stat('Foto não salva')}
+    close();save();render();
+  };
+  if(id)$('#del').onclick=async function(){
+    if(arm!=='p'){arm='p';this.textContent='Toque de novo para confirmar';return}
+    arm=null;S.p=S.p.filter(x=>x.id!==id);S.t.forEach(t=>t.ids=t.ids.filter(x=>x!==id));delete PH[id];try{await fdel(id)}catch(e){}close();save();render();
+  };
+}
+/* renomear/excluir situação */
+function man(){
+  $('#ov').innerHTML=`<div class="ov"><div class="sh"><b>Situação</b><label>Nome</label><input id="mn" value="${esc(cur)}">
+<div class="row"><button class="btn" id="x">Fechar</button><button class="btn p" id="ok">Renomear</button></div>
+<div class="row"><button class="btn d" id="dd">Excluir situação</button></div></div></div>`;
+  $('#x').onclick=close;
+  $('#ok').onclick=()=>{const n=$('#mn').value.trim();if(!n||S.t.some(t=>t.n===n&&n!==cur))return;S.t.find(t=>t.n===cur).n=n;cur=n;close();save();render()};
+  $('#dd').onclick=function(){if(arm!=='s'){arm='s';this.textContent='Toque de novo para confirmar';return}arm=null;S.t=S.t.filter(t=>t.n!==cur);cur='Todos';mv=0;close();save();render()};
+}
+/* ajustes */
+function cfg(){
+  const c=S.c,o=(v,l,k)=>`<option value="${v}"${v===k?' selected':''}>${l}</option>`;
+  $('#ov').innerHTML=`<div class="ov"><div class="sh"><b>⚙ Ajustes</b>
+<label>Tema</label><select id="c1">${o('auto','Automático',c.tema)}${o('light','Claro',c.tema)}${o('dark','Escuro',c.tema)}</select>
+<label>Tamanho do texto</label><select id="c2">${o('p','Pequeno',c.fonte)}${o('m','Médio',c.fonte)}${o('g','Grande',c.fonte)}</select>
+<label>Ordem em “Todos”</label><select id="c3">${o('az','A → Z',c.ord)}${o('nota','Melhor nota primeiro',c.ord)}</select>
+<div class="sits" style="margin-top:12px"><label><input type="checkbox" id="c4"${c.comp?' checked':''}>Cartões compactos (só nome e nota)</label></div>
+<label>Backup (guarde no Drive ou mande por WhatsApp)</label>
+<div class="row" style="margin-top:4px"><button class="btn" id="bx">Exportar</button><label class="btn" style="margin:0;text-align:center;color:var(--tx)">Importar<input type="file" id="bi" accept=".json,application/json" hidden></label></div>
+${deferred?'<div class="row"><button class="btn p" id="inst">Instalar app</button></div>':''}
+<div class="row"><button class="btn d" id="rs">Restaurar lista padrão</button></div>
+<div class="row"><button class="btn p" id="x">Fechar</button></div></div></div>`;
+  $('#x').onclick=close;
+  $('#c1').onchange=e=>{S.c.tema=e.target.value;apply();save()};
+  $('#c2').onchange=e=>{S.c.fonte=e.target.value;apply();save()};
+  $('#c3').onchange=e=>{S.c.ord=e.target.value;save();render()};
+  $('#c4').onchange=e=>{S.c.comp=e.target.checked?1:0;save();render()};
+  $('#bx').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({v:2,S,PH})],{type:'application/json'}));a.download='guia-presets-backup.json';document.body.append(a);a.click();a.remove();stat('Backup exportado')};
+  $('#bi').onchange=async e=>{try{const x=JSON.parse(await e.target.files[0].text());if(!x.S||!x.S.p)throw 0;S=x.S;S.c={...def().c,...S.c};mig();PH=x.PH||{};await fx('readwrite',s=>s.clear());for(const k in PH)await fset(k,PH[k]);close();save();apply();render();stat('Backup importado ✓')}catch(err){stat('Arquivo inválido')}};
+  if($('#inst'))$('#inst').onclick=()=>deferred&&deferred.prompt();
+  $('#rs').onclick=async function(){if(arm!=='r'){arm='r';this.textContent='Apaga edições e fotos. Toque de novo';return}arm=null;S=def();PH={};try{await fx('readwrite',s=>s.clear())}catch(e){}close();apply();save();render()};
+}
+document.addEventListener('click',e=>{
+  const g=s=>e.target.closest(s);
+  if(g('[data-u]')){const p=find(g('[data-u]').dataset.u);p.u=(p.u||0)+1;save();stat('Anotado ✓ Esse preset sobe nas próximas recomendações');return}
+  if(g('#ov'))return;
+  if(g('#cfg')){arm=null;cfg();return}
+  if(g('#rec')){rec();return}
+  if(g('#flb')){flt();return}
+  if(g('#flx')){fl=[];render();return}
+  if(g('#cmpb')){cm=!cm;sel=[];render();return}
+  if(g('#cx')){cm=0;sel=[];render();return}
+  if(g('#cgo')){if(sel.length>1)cmp();return}
+  if(g('[data-s]')){cur=g('[data-s]').dataset.s;q='';$('#q').value='';mv=0;arm=null;render();scrollTo(0,0);return}
+  if(g('#add')){arm=null;edit('');return}
+  if(g('#mvb')){mv=!mv;render();return}
+  if(g('#man')){arm=null;man();return}
+  if(g('[data-f]')){const p=find(g('.c').dataset.i);p.f=p.f?0:1;save();render();return}
+  if(cm&&g('.c')&&g('.c').dataset.i){const id=g('.c').dataset.i,i=sel.indexOf(id);if(i>=0)sel.splice(i,1);else if(sel.length<3)sel.push(id);else stat('Máximo de 3 presets');render();return}
+  const m=g('[data-m]');
+  if(m){const id=g('.c').dataset.i,t=S.t.find(t=>t.n===cur),i=t.ids.indexOf(id),d=m.dataset.m;
+    if(d==='x')t.ids.splice(i,1);else{const j=i+ +d;if(j<0||j>=t.ids.length)return;[t.ids[i],t.ids[j]]=[t.ids[j],t.ids[i]]}
+    save();render();return}
+  if(g('.c')){arm=null;edit(g('.c').dataset.i)}
+});
+$('#q').oninput=e=>{q=e.target.value.trim().toLowerCase();render()};
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
+try{const j=localStorage.getItem('gp2');if(j){const x=JSON.parse(j);x.c={...def().c,...x.c};S=x}}catch(e){}
+if(mig())save();apply();render();
+fall().then(o=>{PH=o;render()}).catch(()=>{});
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>
