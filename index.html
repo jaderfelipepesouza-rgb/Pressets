@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#c2410c">
+<meta name="theme-color" content="#101112">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <title>Guia de Presets</title>
@@ -46,9 +46,81 @@ main{padding:12px 14px 90px;max-width:640px;margin:0 auto}
 .cbar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--bd);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;align-items:center;z-index:6}.cbar span{flex:1;font-size:.88rem}
 .btn:disabled{opacity:.4}
 .xx{position:sticky;top:0;margin:-16px -14px 8px;padding:10px 14px;background:var(--bg);display:flex;justify-content:flex-end;z-index:2;border-bottom:1px solid var(--bd)}
+
+/* Identidade visual JF — camada exclusivamente visual; lógica original preservada. */
+:root{
+ --bg:#f7f7f6;--cd:#ffffff;--tx:#171717;--mu:#666666;
+ --ac:#997817;--bd:#e6e5e2;--ok:#28734b;--no:#a64747;
+ --gold:#cda62e;--shadow:0 3px 18px rgba(0,0,0,.035);
+ color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  --bg:#101112;--cd:#1b1c1e;--tx:#f4f4f1;--mu:#a8a8a5;
+  --ac:#d9b743;--bd:#333436;--ok:#80c5a0;--no:#ef9595;
+  --gold:#d7b33e;--shadow:0 6px 24px rgba(0,0,0,.1);
+  color-scheme:dark;
+ }
+}
+:root[data-theme="dark"]{
+ --bg:#101112;--cd:#1b1c1e;--tx:#f4f4f1;--mu:#a8a8a5;
+ --ac:#d9b743;--bd:#333436;--ok:#80c5a0;--no:#ef9595;
+ --gold:#d7b33e;--shadow:0 6px 24px rgba(0,0,0,.1);
+ color-scheme:dark;
+}
+html{background:var(--bg);-webkit-tap-highlight-color:transparent}
+body{font-family:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.01em}
+.top{padding:18px 16px 12px;background:var(--bg);border-bottom:1px solid var(--bd);box-shadow:0 2px 12px rgba(0,0,0,.015)}
+.t1{gap:10px;min-height:42px}
+.t1 h1{font-family:Cinzel,Georgia,"Times New Roman",serif;font-size:1.25rem;font-weight:600;letter-spacing:.025em;display:flex;align-items:center;gap:9px}
+.app-mark{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--gold);border-radius:9px;color:var(--ac)}
+.app-mark svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hint{color:var(--mu);line-height:1.5;font-size:.77rem;margin:8px 0 13px}
+input,textarea,select{border-radius:11px;padding:11px 12px;min-height:42px;outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var(--gold);box-shadow:0 0 0 3px rgba(205,166,46,.14)}
+#q{border:1px solid var(--bd);background:var(--cd);padding:12px 14px;border-radius:12px;font-size:.88rem}
+.chips{gap:8px;padding:13px 0 3px;scrollbar-width:none}
+.chip{border-radius:9px;padding:9px 12px;font-size:.78rem;font-weight:600;white-space:nowrap;transition:background .15s,border-color .15s}
+.chip.on{color:#151515;background:var(--gold);border-color:var(--gold)}
+main{padding:16px 16px 90px;max-width:680px}
+.bar{gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.bar span{color:var(--mu);font-size:.76rem;font-weight:600;min-width:100%;margin-bottom:3px;letter-spacing:.025em}
+.btn{border-radius:10px;padding:10px 12px;font-size:.79rem;font-weight:600;min-height:38px;transition:background .15s,border-color .15s}
+.btn.p{background:var(--gold);border-color:var(--gold);color:#171717}
+.btn.d{color:var(--no)}
+.btn:focus-visible,.chip:focus-visible,.fv:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:15px;padding:16px;margin-bottom:11px;box-shadow:var(--shadow)}
+.ph{width:calc(100% + 32px);margin:-16px -16px 13px;max-height:220px}
+.h{gap:9px;min-height:30px}
+.h b{font-size:.91rem;font-weight:700;line-height:1.4}
+.rk{min-width:27px;height:27px;padding:0 5px;border-radius:8px;background:color-mix(in srgb,var(--gold) 13%,var(--cd));border:1px solid color-mix(in srgb,var(--gold) 36%,var(--bd));color:var(--ac);font-size:.72rem}
+.st{font-size:.86rem;color:var(--ac);letter-spacing:.025em}
+.fv{font-size:1.3rem;min-width:30px;min-height:32px;color:var(--ac)}
+.c p{font-size:.84rem;line-height:1.58;margin-top:8px}
+.c p.tg{font-size:.72rem;line-height:1.6;color:var(--mu);margin-top:8px}
+.c.sel{outline:2px solid var(--gold);outline-offset:1px}
+.mv{margin-top:14px;flex-wrap:wrap}
+.ov{background:rgba(0,0,0,.65);backdrop-filter:blur(3px)}
+.sh{border-radius:20px 20px 0 0;padding:18px 16px calc(22px + env(safe-area-inset-bottom,0px));background:var(--bg)}
+.sh>b{font-family:Cinzel,Georgia,serif;font-weight:600;font-size:1.1rem;letter-spacing:.015em}
+.sh label{font-size:.78rem;font-weight:600;margin:14px 0 5px}
+.sits{gap:8px}
+.sits label{border-radius:9px;padding:8px 10px;font-size:.78rem;font-weight:500;margin:0;min-height:36px}
+.sits input{min-height:0;accent-color:var(--ac)}
+.row{gap:9px}
+.row .btn{min-height:42px}
+.pv{border-radius:12px}
+.fl{color:var(--ac)}
+.cc{border-radius:12px;padding:13px;line-height:1.55}
+.cbar{background:var(--bg);padding-left:16px;padding-right:16px}
+.xx{background:var(--bg)}
+#stat{font-size:.72rem}
+@media (min-width:700px){.top{padding-left:max(18px,calc((100vw - 680px)/2));padding-right:max(18px,calc((100vw - 680px)/2))}}
+@media (max-width:390px){.t1 h1{font-size:1.13rem}.t1 .btn{padding:9px 10px;font-size:.75rem}.bar .btn{padding:8px 10px}}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style></head><body>
 <div class="top">
-<div class="t1"><h1>📷 Presets</h1><button class="btn p" id="rec">✨ Recomendar</button><button class="btn" id="cfg">⚙</button></div>
+<div class="t1"><h1><span class="app-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5h4l1.5-2h5L16 7.5h4v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span>Presets</h1><button class="btn p" id="rec">✨ Recomendar</button><button class="btn" id="cfg">⚙</button></div>
 <p class="hint">Toque numa situação: a lista vai do melhor para o pior. Toque num cartão para editar.</p>
 <input id="q" type="search" placeholder="Buscar preset ou palavra (ex.: pele, escuro)">
 <div class="chips" id="chips"></div>
